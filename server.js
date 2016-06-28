@@ -19,7 +19,6 @@ var User = require('./models/User');
 
 // Controllers
 var userController = require('./controllers/user');
-var contactController = require('./controllers/contact');
 
 var app = express();
 

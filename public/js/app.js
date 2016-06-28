@@ -1,43 +1,108 @@
-angular.module('MyApp', ['ngRoute', 'satellizer'])
-  .config(function($routeProvider, $locationProvider, $authProvider) {
+angular.module('MyApp', ['ngRoute', 'satellizer', 'ui.router'])
+  .config(function($routeProvider, $locationProvider, $authProvider, $stateProvider) {
     $locationProvider.html5Mode(true);
 
     $routeProvider
-      .when('/', {
-        templateUrl: 'partials/home.html'
-      })
-      .when('/contact', {
-        templateUrl: 'partials/contact.html',
-        controller: 'ContactCtrl'
-      })
-      .when('/login', {
-        templateUrl: 'partials/login.html',
-        controller: 'LoginCtrl',
-        resolve: { skipIfAuthenticated: skipIfAuthenticated }
-      })
-      .when('/signup', {
-        templateUrl: 'partials/signup.html',
-        controller: 'SignupCtrl',
-        resolve: { skipIfAuthenticated: skipIfAuthenticated }
-      })
-      .when('/account', {
-        templateUrl: 'partials/profile.html',
-        controller: 'ProfileCtrl',
-        resolve: { loginRequired: loginRequired }
-      })
-      .when('/forgot', {
-        templateUrl: 'partials/forgot.html',
-        controller: 'ForgotCtrl',
-        resolve: { skipIfAuthenticated: skipIfAuthenticated }
-      })
-      .when('/reset/:token', {
-        templateUrl: 'partials/reset.html',
-        controller: 'ResetCtrl',
-        resolve: { skipIfAuthenticated: skipIfAuthenticated }
-      })
       .otherwise({
         templateUrl: 'partials/404.html'
       });
+
+    $stateProvider
+        .state('root', {
+            url: '',
+            abstract: true,
+            views: {
+                'header': {
+                    templateUrl: "partials/header.html",
+                    controller: "HeaderCtrl"
+                },
+                'footer': {
+                    templateUrl: "partials/footer.html"
+                },
+            }
+        })
+        .state('home', {
+            parent: "root",
+            url: "/",
+            views: {
+                "partial@": {
+                    templateUrl: "partials/home.html"
+                }
+            },
+            data: {
+                pageTitle: "Home"
+            }
+        })
+        .state('login', {
+            parent: "root",
+            url: "/login",
+            views: {
+                "partial@": {
+                    templateUrl: "partials/login.html",
+                    controller:"LoginCtrl",
+                    resolve: { skipIfAuthenticated: skipIfAuthenticated }
+                }
+            },
+            data: {
+                pageTitle: "Login"
+            }
+        })
+        .state('signup', {
+            parent: "root",
+            url: "/signup",
+            views: {
+                "partial@": {
+                    templateUrl: "partials/signup.html",
+                    controller:"SignupCtrl",
+                    resolve: { skipIfAuthenticated: skipIfAuthenticated }
+                }
+            },
+            data: {
+                pageTitle: "Signup"
+            }
+        })
+        .state('account', {
+            parent: "root",
+            url: "/account",
+            views: {
+                "partial@": {
+                    templateUrl: "partials/profile.html",
+                    controller:"ProfileCtrl",
+                    resolve: { loginRequired: loginRequired }
+                }
+            },
+            data: {
+                pageTitle: "Account"
+            }
+        })
+        .state('forgot', {
+            parent: "root",
+            url: "/forgot",
+            views: {
+                "partial@": {
+                    templateUrl: "partials/forgot.html",
+                    controller:"ForgotCtrl",
+                    resolve: { skipIfAuthenticated: skipIfAuthenticated }
+                }
+            },
+            data: {
+                pageTitle: "Login"
+            }
+        })
+        .state('reset', {
+            parent: "root",
+            url: "/reset/:token",
+            views: {
+                "partial@": {
+                    templateUrl: "partials/forgot.html",
+                    controller:"ForgotCtrl",
+                    resolve: { skipIfAuthenticated: skipIfAuthenticated }
+                }
+            },
+            data: {
+                pageTitle: "Reset password"
+            }
+        })
 
     $authProvider.loginUrl = '/login';
     $authProvider.signupUrl = '/signup';
@@ -59,8 +124,9 @@ angular.module('MyApp', ['ngRoute', 'satellizer'])
       }
     }
   })
-  .run(function($rootScope, $window) {
+  .run(['$rootScope', '$state','$window', function($rootScope, $state, $window) {
     if ($window.localStorage.user) {
       $rootScope.currentUser = JSON.parse($window.localStorage.user);
     }
-  });
+     $rootScope.$state = $state;
+  }]);
