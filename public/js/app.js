@@ -1,4 +1,4 @@
-angular.module('MyApp', ['ngRoute', 'satellizer', 'ui.router'])
+angular.module('MyApp', ['ngRoute', 'satellizer', 'ui.router', 'ngAnimate'])
   .config(function($routeProvider, $locationProvider, $authProvider, $stateProvider) {
     $locationProvider.html5Mode(true);
 
@@ -31,7 +31,8 @@ angular.module('MyApp', ['ngRoute', 'satellizer', 'ui.router'])
                 }
             },
             data: {
-                pageTitle: "Amour&numérique"
+                pageTitle: "Amour&numérique",
+                index: 1
             }
         })
         .state('login', {
@@ -45,7 +46,8 @@ angular.module('MyApp', ['ngRoute', 'satellizer', 'ui.router'])
                 }
             },
             data: {
-                pageTitle: "Amour&numérique - Se connecter"
+                pageTitle: "Amour&numérique - Se connecter",
+                index: 2
             }
         })
         .state('signup', {
@@ -140,8 +142,18 @@ angular.module('MyApp', ['ngRoute', 'satellizer', 'ui.router'])
     }
   })
   .run(['$rootScope', '$state','$window', function($rootScope, $state, $window) {
-    if ($window.localStorage.user) {
-      $rootScope.currentUser = JSON.parse($window.localStorage.user);
-    }
-     $rootScope.$state = $state;
+        if ($window.localStorage.user) {
+          $rootScope.currentUser = JSON.parse($window.localStorage.user);
+        }
+
+       $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState) {
+            if (typeof fromState.data != "undefined") {
+                if (fromState.data.index < toState.data.index) {
+                    toState.data.backward = false;
+                } else {
+                    toState.data.backward = true;
+                }
+                $rootScope.$state = $state;
+            }
+       });
   }]);
