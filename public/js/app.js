@@ -8,24 +8,10 @@ angular.module('MyApp', ['ngRoute', 'satellizer', 'ui.router', 'ngAnimate'])
       });
 
     $stateProvider
-        .state('root', {
-            url: '',
-            abstract: true,
-            views: {
-                'header': {
-                    templateUrl: "partials/header.html",
-                    controller: "HeaderCtrl"
-                },
-                'footer': {
-                    templateUrl: "partials/footer.html"
-                },
-            }
-        })
         .state('home', {
-            parent: "root",
             url: "/",
             views: {
-                "partial@": {
+                "partial": {
                     templateUrl: "partials/home.html",
                     controller: "HomeCtrl"
                 }
@@ -36,10 +22,9 @@ angular.module('MyApp', ['ngRoute', 'satellizer', 'ui.router', 'ngAnimate'])
             }
         })
         .state('login', {
-            parent: "root",
             url: "/login",
             views: {
-                "partial@": {
+                "partial": {
                     templateUrl: "partials/login.html",
                     controller:"LoginCtrl",
                     resolve: { skipIfAuthenticated: skipIfAuthenticated }
@@ -51,10 +36,9 @@ angular.module('MyApp', ['ngRoute', 'satellizer', 'ui.router', 'ngAnimate'])
             }
         })
         .state('signup', {
-            parent: "root",
             url: "/signup",
             views: {
-                "partial@": {
+                "partial": {
                     templateUrl: "partials/signup.html",
                     controller:"SignupCtrl",
                     resolve: { skipIfAuthenticated: skipIfAuthenticated }
@@ -65,10 +49,9 @@ angular.module('MyApp', ['ngRoute', 'satellizer', 'ui.router', 'ngAnimate'])
             }
         })
         .state('signup2', {
-            parent: "root",
             url: "/signup2",
             views: {
-                "partial@": {
+                "partial": {
                     templateUrl: "partials/signup2.html",
                     // controller:"Signup2Ctrl",
                     resolve: { skipIfAuthenticated: skipIfAuthenticated }
@@ -76,48 +59,6 @@ angular.module('MyApp', ['ngRoute', 'satellizer', 'ui.router', 'ngAnimate'])
             },
             data: {
                 pageTitle: "Amour&numérique - Informations complémentaires"
-            }
-        })
-        .state('account', {
-            parent: "root",
-            url: "/account",
-            views: {
-                "partial@": {
-                    templateUrl: "partials/profile.html",
-                    controller:"ProfileCtrl",
-                    resolve: { loginRequired: loginRequired }
-                }
-            },
-            data: {
-                pageTitle: "Amour&numérique - Compte"
-            }
-        })
-        .state('forgot', {
-            parent: "root",
-            url: "/forgot",
-            views: {
-                "partial@": {
-                    templateUrl: "partials/forgot.html",
-                    controller:"ForgotCtrl",
-                    resolve: { skipIfAuthenticated: skipIfAuthenticated }
-                }
-            },
-            data: {
-                pageTitle: "Amour&numérique - Mot de passe oublié"
-            }
-        })
-        .state('reset', {
-            parent: "root",
-            url: "/reset/:token",
-            views: {
-                "partial@": {
-                    templateUrl: "partials/forgot.html",
-                    controller:"ForgotCtrl",
-                    resolve: { skipIfAuthenticated: skipIfAuthenticated }
-                }
-            },
-            data: {
-                pageTitle: "Amour&numérique - réinitialisation"
             }
         })
 
