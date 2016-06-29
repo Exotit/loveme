@@ -1,8 +1,5 @@
 <div class="container fs login">
   <h2 class="ft--avenir__bold ft--grey__dark">Qui êtes-vous ?</h2>
-  <div ng-if="messages.error" role="alert" class="text-danger">
-    <div ng-repeat="error in messages.error">{{error.msg}}</div>
-  </div>
   <button ng-click="authenticate('facebook')" class="ft--avenir__bold ft--white"><img src="img/facebook.svg" alt="Facebook icon">Se connecter avec Facebook</button>
 
   <span class="fb-info ft--avenir__demibold ft--grey__light"><img src="img/info.svg" alt="information icon"> Nous ne publions rien sur Facebook</span>

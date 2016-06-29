@@ -31,7 +31,7 @@ angular.module('MyApp', ['ngRoute', 'satellizer', 'ui.router'])
                 }
             },
             data: {
-                pageTitle: "Home"
+                pageTitle: "Amour&numérique"
             }
         })
         .state('login', {
@@ -45,7 +45,7 @@ angular.module('MyApp', ['ngRoute', 'satellizer', 'ui.router'])
                 }
             },
             data: {
-                pageTitle: "Login"
+                pageTitle: "Amour&numérique - Se connecter"
             }
         })
         .state('signup', {
@@ -59,7 +59,21 @@ angular.module('MyApp', ['ngRoute', 'satellizer', 'ui.router'])
                 }
             },
             data: {
-                pageTitle: "Signup"
+                pageTitle: "Amour&numérique - S'inscrire"
+            }
+        })
+        .state('signup2', {
+            parent: "root",
+            url: "/signup2",
+            views: {
+                "partial@": {
+                    templateUrl: "partials/signup2.html",
+                    // controller:"Signup2Ctrl",
+                    resolve: { skipIfAuthenticated: skipIfAuthenticated }
+                }
+            },
+            data: {
+                pageTitle: "Amour&numérique - Informations complémentaires"
             }
         })
         .state('account', {
@@ -73,7 +87,7 @@ angular.module('MyApp', ['ngRoute', 'satellizer', 'ui.router'])
                 }
             },
             data: {
-                pageTitle: "Account"
+                pageTitle: "Amour&numérique - Compte"
             }
         })
         .state('forgot', {
@@ -87,7 +101,7 @@ angular.module('MyApp', ['ngRoute', 'satellizer', 'ui.router'])
                 }
             },
             data: {
-                pageTitle: "Login"
+                pageTitle: "Amour&numérique - Mot de passe oublié"
             }
         })
         .state('reset', {
@@ -101,7 +115,7 @@ angular.module('MyApp', ['ngRoute', 'satellizer', 'ui.router'])
                 }
             },
             data: {
-                pageTitle: "Reset password"
+                pageTitle: "Amour&numérique - réinitialisation"
             }
         })
 

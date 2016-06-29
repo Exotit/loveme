@@ -1,4 +1,7 @@
 <div class="container fs login">
+  <div ng-if="messages.error" role="alert" class="text-danger">
+    <div ng-repeat="error in messages.error">{{error.msg}}</div>
+  </div>
   <form ng-submit="signup()">
     <label for="firstname" class="ft--avenir__bold ft--grey__dark">Quel est votre prénom ?</label>
     <input class="ft--avenir ft--grey__light" type="name" name="firstname" id="firstname" placeholder="Mon prénom" ng-model="user.firstname" autofocus required>
