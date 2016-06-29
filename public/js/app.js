@@ -26,7 +26,8 @@ angular.module('MyApp', ['ngRoute', 'satellizer', 'ui.router'])
             url: "/",
             views: {
                 "partial@": {
-                    templateUrl: "partials/home.html"
+                    templateUrl: "partials/home.html",
+                    controller: "HomeCtrl"
                 }
             },
             data: {

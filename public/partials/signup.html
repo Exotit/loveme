@@ -1,25 +1,12 @@
-<div class="container">
-  <div ng-if="messages.error" role="alert" class="text-danger">
-    <div ng-repeat="error in messages.error">{{error.msg}}</div>
-  </div>
-
-  <h4>Create an account</h4>
-
+<div class="container fs login">
   <form ng-submit="signup()">
-    <label for="email">Email</label>
-    <input type="email" name="email" id="email" placeholder="Email" ng-model="user.email" autofocus>
-    <label for="name">Name</label>
-    <input type="text" name="name" id="name" placeholder="Name" ng-model="user.name">
-    <label for="password">Password</label>
-    <input type="password" name="password" id="password" placeholder="Password" ng-model="user.password">
-    <p>By signing up, you agree to the <a href="/">Terms of Service</a>.</p>
-    <button type="submit">Create an account</button>
+    <label for="firstname" class="ft--avenir__bold ft--grey__dark">Quel est votre prénom ?</label>
+    <input class="ft--avenir ft--grey__light" type="name" name="firstname" id="firstname" placeholder="Mon prénom" ng-model="user.firstname" autofocus required>
+    <label for="lastname" class="ft--avenir__bold ft--grey__dark">Quel est votre nom de famille ?</label>
+    <input class="ft--avenir ft--grey__light" type="name" name="lastname" id="lastname" placeholder="Mon nom" ng-model="user.lastname" required>
+    <label for="email" class="ft--avenir__bold ft--grey__dark">Quel est votre addresse email ?</label>
+    <input class="ft--avenir ft--grey__light" type="email" name="email" id="email" placeholder="Mon email" ng-model="user.email" required>
+    <button class="ft--avenir__bold ft--white" type="submit">Confirmer</button>
+    <span class="conditions-info ft--avenir ft--grey__dark">En continuant, vous acceptez nos <a href="#" class="ft--red">conditions d’utilisation</a> et Politique de Confidentialité</span>
   </form>
-
-  <hr>
-
-  <button ng-click="authenticate('facebook')">Sign in with Facebook</button>
-  <br>
-
-  <p>Already have an account? <a href="/login">Log in</a></p>
 </div>
