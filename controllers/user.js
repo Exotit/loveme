@@ -37,16 +37,10 @@ exports.ensureAuthenticated = function(req, res, next) {
 exports.accountPut = function(req, res, next) {
 
   User.findOneAndUpdate(req.user.id,{age : req.body.age, status: req.body.status },{upsert: true}, function(err, user) {
-      console.log(err);
-//    user.save(function(err) {
-//      if ('password' in req.body) {
-//        res.send({ msg: 'Your password has been changed.' });
-//      } else if (err && err.code === 11000) {
-//        res.status(409).send({ msg: 'The email address you have entered is already associated with another account.' });
-//      } else {
-//        res.send({ user: user, msg: 'Your profile information has been updated.' });
-//      }
-//    });
+    if(err === null)
+    {
+      res.status(200).send({msg: 'Updated successfully'});
+    }
   });
 };
 
