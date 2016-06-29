@@ -53,8 +53,7 @@ angular.module('MyApp', ['ngRoute', 'satellizer', 'ui.router', 'ngAnimate'])
             views: {
                 "partial": {
                     templateUrl: "partials/signup2.html",
-                    // controller:"Signup2Ctrl",
-                    resolve: { skipIfAuthenticated: skipIfAuthenticated }
+                    controller:"Signup2Ctrl",
                 }
             },
             data: {

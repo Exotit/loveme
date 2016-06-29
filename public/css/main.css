@@ -419,3 +419,12 @@ button:hover {
   -moz-transform:translate3d(100%, 0, 0);
   transform:translate3d(100%, 0, 0);
 }
+
+/* SIGNUP2 FORM */
+
+.login form input.ng-invalid.ng-dirty {
+    border-color:red;
+}
+.login form input.ng-valid.ng-dirty {
+    border-color:green;
+}
