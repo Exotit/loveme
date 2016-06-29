@@ -341,7 +341,7 @@ button:hover {
   font-size: 36px;
 }
 
-.login input {
+.login form > input {
   border: 1px solid #BCBCBC;
   border-radius: 15px;
   width: 380px;
@@ -354,6 +354,9 @@ button:hover {
   margin: 0 auto 18px auto;
 }
 
+.login form div:last-of-type {
+  margin-bottom: 40px;
+}
 
 /*
 .scroll {
