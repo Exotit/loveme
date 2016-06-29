@@ -3,33 +3,33 @@
 
 
 <head>
-    <base href="/">
-    <meta charset="utf-8" />
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title ng-bind="$state.current.data.pageTitle"></title>
-    <link rel="icon" type="image/png" href="img/favicon.png" />
-    <link rel="stylesheet" href="/fonts/stylesheet.css">
-    <link rel="stylesheet" href="/css/normalize.css">
-    <link rel="stylesheet" href="/css/flexboxgrid.css">
-    <link rel="stylesheet" href="/css/main.css">
+  <base href="/">
+  <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title ng-bind="$state.current.data.pageTitle"></title>
+  <link rel="icon" type="image/png" href="img/favicon.png" />
+  <link rel="stylesheet" href="/fonts/stylesheet.css">
+  <link rel="stylesheet" href="/css/normalize.css">
+  <link rel="stylesheet" href="/css/flexboxgrid.css">
+  <link rel="stylesheet" href="/css/main.css">
 </head>
 
-    <body>
-        <div class="scroll">
-            <div ui-view="partial" ng-class="{backward: $state.current.data.backward}"></div>
-        </div>
+<body>
+  <div class="scroll">
+    <div ui-view="partial" ng-class="{backward: $state.current.data.backward}"></div>
+  </div>
 
 
-        <script src="/js/lib/angular.js"></script>
-        <script src="/js/lib/angular-route.js"></script>
-        <script src="/js/lib/angular-ui-router.min.js"></script>
-        <script src="/js/lib/angular-animate.min.js"></script>
-        <script src="/js/lib/satellizer.js"></script>
-        <script src="/js/app.js"></script>
-        <script src="/js/controllers/home.js"></script>
-        <script src="/js/controllers/login.js"></script>
-        <script src="/js/controllers/signup.js"></script>
+  <script src="/js/lib/angular.js"></script>
+  <script src="/js/lib/angular-route.js"></script>
+  <script src="/js/lib/angular-ui-router.min.js"></script>
+  <script src="/js/lib/angular-animate.min.js"></script>
+  <script src="/js/lib/satellizer.js"></script>
+  <script src="/js/app.js"></script>
+  <script src="/js/controllers/home.js"></script>
+  <script src="/js/controllers/login.js"></script>
+  <script src="/js/controllers/signup.js"></script>
 
-    </body>
+</body>
 </html>
