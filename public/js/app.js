@@ -123,6 +123,54 @@ angular.module('MyApp', ['ngRoute', 'satellizer', 'ui.router', 'ngAnimate'])
                 pageTitle: "Model question"
             }
         })
+        .state('slide4', {
+            url: "/slide4",
+            views: {
+                "partial": {
+                    templateUrl: "partials/slide4.html",
+                    controller:"Slide4Ctrl",
+                }
+            },
+            data: {
+                pageTitle: "Model texte/chat"
+            }
+        })
+        .state('slide5', {
+            url: "/slide5",
+            views: {
+                "partial": {
+                    templateUrl: "partials/slide5.html",
+                    controller:"Slide5Ctrl",
+                }
+            },
+            data: {
+                pageTitle: "Model stats"
+            }
+        })
+        .state('slide6', {
+            url: "/slide6",
+            views: {
+                "partial": {
+                    templateUrl: "partials/slide6.html",
+                    controller:"Slide6Ctrl",
+                }
+            },
+            data: {
+                pageTitle: "Model stats/number"
+            }
+        })
+        .state('slide7', {
+            url: "/slide7",
+            views: {
+                "partial": {
+                    templateUrl: "partials/slide7.html",
+                    controller:"Slide7Ctrl",
+                }
+            },
+            data: {
+                pageTitle: "Model quote"
+            }
+        })
 
 
     $authProvider.loginUrl = '/login';

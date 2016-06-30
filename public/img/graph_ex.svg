@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="306px" height="315px" viewBox="0 0 306 315" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 3.8.3 (29802) - http://www.bohemiancoding.com/sketch -->
+    <title>Group</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Main" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="#SI_WD---Texte+pourcentage-(1440*1024)" transform="translate(-151.000000, -260.000000)">
+            <g id="Group" transform="translate(151.000000, 260.000000)">
+                <g id="_Diag">
+                    <path d="M244.247313,288.732051 C219.430308,305.08109 189.712811,314.588974 157.755806,314.588974 C70.8805639,314.588974 0.446193833,244.264551 0.446193833,157.496859 C0.446193833,70.7417308 70.8805639,0.40474359 157.755806,0.40474359 L157.755806,157.116795 L244.247313,288.732051 L244.247313,288.732051 Z" id="Shape" fill="#FF6A6A"></path>
+                    <path d="M305.855762,153.184231 C305.855762,198.992949 282.337797,239.317436 246.716432,262.771474 L174.492344,152.866987 L174.492344,22.011859 C247.03726,22.011859 305.855762,80.7490385 305.855762,153.184231 L305.855762,153.184231 Z" id="Shape" fill="#5D5D5D"></path>
+                </g>
+                <text id="71%" font-family="AvenirNext-Bold, Avenir Next" font-size="36" font-weight="bold" fill="#FFFFFF">
+                    <tspan x="57" y="194">71%</tspan>
+                </text>
+                <text id="29%" font-family="AvenirNext-Bold, Avenir Next" font-size="36" font-weight="bold" fill="#FFFFFF">
+                    <tspan x="204" y="152">29%</tspan>
+                </text>
+            </g>
+        </g>
+    </g>
+</svg>
