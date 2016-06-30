@@ -63,6 +63,18 @@ angular.module('MyApp', ['ngRoute', 'satellizer', 'ui.router', 'ngAnimate'])
                 pageTitle: "Amour&numérique - Informations complémentaires"
             }
         })
+        .state('slide1', {
+            url: "/slide1",
+            views: {
+                "partial": {
+                    templateUrl: "partials/slide1.html",
+                    controller:"Slide1Ctrl",
+                }
+            },
+            data: {
+                pageTitle: "1. Introduction"
+            }
+        })
 
 
     $authProvider.loginUrl = '/login';
@@ -100,6 +112,5 @@ angular.module('MyApp', ['ngRoute', 'satellizer', 'ui.router', 'ngAnimate'])
                 $rootScope.$state = $state;
             }
        });
-
-      $rootScope.$state = $state;
+       $rootScope.$state = $state;
   }]);
