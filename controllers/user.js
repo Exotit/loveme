@@ -35,8 +35,8 @@ exports.ensureAuthenticated = function(req, res, next) {
  * Update profile information OR change password.
  */
 exports.accountPut = function(req, res, next) {
-
-  User.findOneAndUpdate(req.user.id,{age : req.body.age, status: req.body.status },{upsert: true}, function(err, user) {
+  User.findOneAndUpdate(req.user.id,req.body,{upsert: true}, function(err, user) {
+      console.log(user);
     if(err === null)
     {
       res.status(200).send({msg: 'Updated successfully'});
@@ -119,6 +119,9 @@ exports.authFacebook = function(req, res) {
           user.gender = user.gender || profile.gender;
           user.picture = user.picture || 'https://graph.facebook.com/' + profile.id + '/picture?type=large';
           user.facebook = profile.id;
+          user.age = user.age;
+          user.status = user.status;
+          user.progess = user.progress;
           user.save(function() {
             res.send({ token: generateToken(user), user: user });
           });
@@ -139,7 +142,8 @@ exports.authFacebook = function(req, res) {
               gender: profile.gender,
               location: profile.location && profile.location.name,
               picture: 'https://graph.facebook.com/' + profile.id + '/picture?type=large',
-              facebook: profile.id
+              facebook: profile.id,
+              progress: {chapter:1, slide: 1}
             });
             user.save(function(err) {
               return res.send({ token: generateToken(user), user: user });

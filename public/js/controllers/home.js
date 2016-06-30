@@ -1,5 +1,5 @@
 angular.module('MyApp')
-  .controller('HomeCtrl', function($scope, $location, $window, $auth) {
+  .controller('HomeCtrl', function($scope, $location, $window, $auth, $rootScope) {
     angular.element(document).ready(function () {
         // When angular finishes loading, get loader out of the way
         window.setTimeout(function(){
@@ -10,4 +10,5 @@ angular.module('MyApp')
           loader.addClass('loader__out');
         }, 1500)
     });
+
   });

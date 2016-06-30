@@ -24,7 +24,8 @@ var userSchema = new mongoose.Schema({
   google: String,
   vk: String,
   age: Number,
-  status: String
+  status: String,
+  progress: Object
 }, schemaOptions);
 
 userSchema.pre('save', function(next) {

@@ -35,19 +35,6 @@ angular.module('MyApp', ['ngRoute', 'satellizer', 'ui.router', 'ngAnimate'])
                 index: 2
             }
         })
-        .state('signup', {
-            url: "/signup",
-            views: {
-                "partial": {
-                    templateUrl: "partials/signup.html",
-                    controller:"SignupCtrl",
-                    resolve: { skipIfAuthenticated: skipIfAuthenticated }
-                }
-            },
-            data: {
-                pageTitle: "Amour&numérique - S'inscrire"
-            }
-        })
         .state('signup2', {
             url: "/signup2",
             views: {
@@ -60,6 +47,23 @@ angular.module('MyApp', ['ngRoute', 'satellizer', 'ui.router', 'ngAnimate'])
                 pageTitle: "Amour&numérique - Informations complémentaires"
             }
         })
+        .state('goto', {
+            url: "/:chapter/:slide",
+            views: {
+                "partial": {
+                    templateUrl: "partials/slide.html",
+                    controller: function($scope, $stateParams, Progression) {
+                        $scope.chapter = $stateParams.chapter;
+                        $scope.slide = $stateParams.slide;
+                        angular.element(document.querySelector(".button")).on("click",Progression.nextSlide);
+                    }
+                }
+            },
+            data: {
+                pageTitle: "Amour&numérique - Informations complémentaires"
+            }
+        })
+
 
     $authProvider.loginUrl = '/login';
     $authProvider.signupUrl = '/signup';
@@ -96,4 +100,6 @@ angular.module('MyApp', ['ngRoute', 'satellizer', 'ui.router', 'ngAnimate'])
                 $rootScope.$state = $state;
             }
        });
+
+      $rootScope.$state = $state;
   }]);

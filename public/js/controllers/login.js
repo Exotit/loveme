@@ -1,25 +1,12 @@
 angular.module('MyApp')
-  .controller('LoginCtrl', function($scope, $rootScope, $location, $window, $auth) {
-    $scope.login = function() {
-      $auth.login($scope.user)
-        .then(function(response) {
-          $rootScope.currentUser = response.data.user;
-          $window.localStorage.user = JSON.stringify(response.data.user);
-          $location.path('/account');
-        })
-        .catch(function(response) {
-          $scope.messages = {
-            error: Array.isArray(response.data) ? response.data : [response.data]
-          };
-        });
-    };
+  .controller('LoginCtrl', function($scope, $rootScope, $location, $window, $auth, $state) {
 
     $scope.authenticate = function(provider) {
       $auth.authenticate(provider)
         .then(function(response) {
           $rootScope.currentUser = response.data.user;
           $window.localStorage.user = JSON.stringify(response.data.user);
-          $location.path('/');
+          $state.go("signup2");
         })
         .catch(function(response) {
           if (response.error) {
@@ -33,4 +20,6 @@ angular.module('MyApp')
           }
         });
     };
+
+
   });
