@@ -71,7 +71,7 @@ app.get('/auth/facebook/callback', userController.authFacebookCallback);
 app.get('*', function(req, res) {
   res.redirect('/#' + req.originalUrl);
 });
-
+//test
 // Production error handler
 if (app.get('env') === 'production') {
   app.use(function(err, req, res, next) {
