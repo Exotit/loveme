@@ -740,7 +740,8 @@ nav a:hover .tooltip {
   font-style: italic;
 }
 
-.model--text section button {
+.model--text section button,
+.model--video button {
   -webkit-box-flex: 0;
   -webkit-flex: 0 1 auto;
   -ms-flex: 0 1 auto;
@@ -755,11 +756,14 @@ nav a:hover .tooltip {
   transition: .2s ease;
 }
 .model--text section button:focus,
-.model--text section button:hover {
+.model--text section button:hover,
+.model--video button:focus,
+.model--video button:hover, {
   background: #F54C4C;
 }
 
-.model--text section button::after {
+.model--text section button::after,
+.model--video button::after {
   content: url('../img/next.svg');
   margin-left: 18px;
   position: relative;
@@ -768,6 +772,12 @@ nav a:hover .tooltip {
 
 
 /* MODEL VIDEO */
+
+.model--video button {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+}
 
 @media (min-aspect-ratio: 16/9) {
   .model--video video {
