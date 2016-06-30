@@ -88,8 +88,8 @@ angular.module('MyApp', ['ngRoute', 'satellizer', 'ui.router', 'ngAnimate'])
     $authProvider.signupUrl = '/signup';
     $authProvider.facebook({
       url: '/auth/facebook',
-      clientId: '980220002068787',
-      redirectUri: 'http://localhost:3000/auth/facebook/callback'
+      clientId: '261242330915898',
+      redirectUri: 'https://amour-et-numerique.herokuapp.com/auth/facebook/callback'
     });
 
     function skipIfAuthenticated($location, $auth) {
