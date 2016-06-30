@@ -18,7 +18,6 @@ angular.module('MyApp', ['ngRoute', 'satellizer', 'ui.router', 'ngAnimate'])
             },
             data: {
                 pageTitle: "Amour&numérique",
-                index: 1
             }
         })
         .state('login', {
@@ -32,7 +31,6 @@ angular.module('MyApp', ['ngRoute', 'satellizer', 'ui.router', 'ngAnimate'])
             },
             data: {
                 pageTitle: "Amour&numérique - Se connecter",
-                index: 2
             }
         })
         .state('signup2', {
