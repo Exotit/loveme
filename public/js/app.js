@@ -74,6 +74,12 @@ angular.module('MyApp', ['ngRoute', 'satellizer', 'ui.router', 'ngAnimate'])
                                         return tpl.data
                                     });
                             break;
+                            case "bubbles":
+                                return $http({method:'GET', url:"/partials/slide4.html"})
+                                    .then(function(tpl){
+                                        return tpl.data
+                                    });
+                            break;
                         }
                     },
                     controller: 'SlideCtrl'

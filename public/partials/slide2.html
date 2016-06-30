@@ -1,7 +1,6 @@
 <div class="container fs slide1 model--video">
-  <video src="img/timelapse.mp4" autoplay loop preload="auto">
+  <video ng-src="{{trustSrc(data.videolink)}}" autoplay preload="auto">
     Your browser doesn't support video API
   </video>
   <button class="ft--avenir__bold ft--white" ui-sref="goto({chapter: {{data.nextChapter}}, slide: {{data.nextSlide}}})">Passer</button>
 </div>
-
