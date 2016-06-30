@@ -35,13 +35,13 @@ exports.ensureAuthenticated = function(req, res, next) {
  * Update profile information OR change password.
  */
 exports.accountPut = function(req, res, next) {
-  User.findOneAndUpdate(req.user.id,req.body,{upsert: true}, function(err, user) {
-      console.log(user);
-    if(err === null)
-    {
-      res.status(200).send({msg: 'Updated successfully'});
-    }
-  });
+      User.findOneAndUpdate(req.user.id,req.body,{upsert: true}, function(err, user) {
+          console.log(user);
+        if(err === null)
+        {
+          res.status(200).send({msg: 'Updated successfully'});
+        }
+      });
 };
 
 /**

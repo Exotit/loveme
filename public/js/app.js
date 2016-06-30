@@ -49,13 +49,37 @@ angular.module('MyApp', ['ngRoute', 'satellizer', 'ui.router', 'ngAnimate'])
         })
         .state('goto', {
             url: "/:chapter/:slide",
+            resolve: {
+                slideData: function($http,$stateParams){
+                    return $http({method:'GET', url:"/chapter/"+$stateParams.chapter+"/slide/"+$stateParams.slide});
+                }
+            },
             views: {
                 "partial": {
-                    templateUrl: "partials/slide.html",
-                    controller: function($scope, $stateParams, Progression) {
-                        $scope.chapter = $stateParams.chapter;
-                        $scope.slide = $stateParams.slide;
-                        angular.element(document.querySelector(".button")).on("click",Progression.nextSlide);
+                    templateProvider: function($http,slideData){
+                        switch(slideData.data.type) {
+                            case "question":
+                                return $http({method:'GET', url:"/partials/slide3.html"})
+                                    .then(function(tpl){
+                                        return tpl.data
+                                    });
+                            break;
+                            case "video":
+                                return $http({method:'GET', url:"/partials/slide2.html"})
+                                    .then(function(tpl){
+                                        return tpl.data
+                                    });
+                            break;
+                            case "text":
+                                return $http({method:'GET', url:"/partials/slide1.html"})
+                                    .then(function(tpl){
+                                        return tpl.data
+                                    });
+                            break;
+                        }
+                    },
+                    controller: function($scope, $stateParams, Progression,slideData) {
+                        console.log(slideData);
                     }
                 }
             },
@@ -97,7 +121,7 @@ angular.module('MyApp', ['ngRoute', 'satellizer', 'ui.router', 'ngAnimate'])
             },
             data: {
                 pageTitle: "Model question"
-            }
+            },
         })
 
 
@@ -133,6 +157,7 @@ angular.module('MyApp', ['ngRoute', 'satellizer', 'ui.router', 'ngAnimate'])
                 } else {
                     toState.data.backward = true;
                 }
+
                 $rootScope.$state = $state;
             }
        });

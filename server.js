@@ -19,6 +19,7 @@ var User = require('./models/User');
 
 // Controllers
 var userController = require('./controllers/user');
+var chapterController = require('./controllers/chapter');
 
 var app = express();
 
@@ -59,6 +60,8 @@ app.use(function(req, res, next) {
 });
 
 app.put('/account', userController.ensureAuthenticated, userController.accountPut);
+app.get('/chapter/:chapter', chapterController.getChapter);
+app.get('/chapter/:chapter/slide/:slide', chapterController.getSlide);
 app.delete('/account', userController.ensureAuthenticated, userController.accountDelete);
 app.get('/unlink/:provider', userController.ensureAuthenticated, userController.unlink);
 app.post('/auth/facebook', userController.authFacebook);
