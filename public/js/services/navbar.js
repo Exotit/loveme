@@ -2,7 +2,6 @@ angular.module('MyApp')
     .factory('NavBar', function ($http, $rootScope, $state, Progression,$compile) {
         var self = this;
         this.createNavBar = function(element,$scope) {
-            console.log("hello");
             self.getChapter()
                 .then(function(chapter){
                     var before = '<nav>'+
@@ -32,7 +31,6 @@ angular.module('MyApp')
         }
 
         this.getChapter = function() {
-            console.log($rootScope.currentUser.progress.chapter);
             return $http({method:'GET', url:"/chapter/"+$rootScope.currentUser.progress.chapter})
                 .then(function(chapter){
                     return chapter.data
@@ -43,23 +41,18 @@ angular.module('MyApp')
             var navOverlay = angular.element(document.querySelector('.nav-overlay'));
             var navBar = angular.element(document.querySelector('nav'));
             var links = angular.element(document.getElementsByTagName('a'));
-            console.log(links);
-          navControl.on('click', function(){
-              console.log("hi");
-            navBar.toggleClass('up');
-          });
-          navOverlay.on('click', function(){
-              console.log("hi");
-            navBar.toggleClass('up');
-          });
-
-         links.on('click', function(){
-             if(!angular.element(this).hasClass("disabled"))
-             {
-                 Progression.goTo(angular.element(this).attr("data-chapter"),angular.element(this).attr("data-slide"));
-             }
-         });
-
+            navControl.on('click', function(){
+                navBar.toggleClass('up');
+            });
+            navOverlay.on('click', function(){
+                navBar.toggleClass('up');
+            });
+            links.on('click', function(){
+                if(!angular.element(this).hasClass("disabled"))
+                {
+                    Progression.goTo(angular.element(this).attr("data-chapter"),angular.element(this).attr("data-slide"));
+                }
+            });
         }
 
         return self;

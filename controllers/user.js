@@ -35,7 +35,7 @@ exports.ensureAuthenticated = function(req, res, next) {
  * Update profile information OR change password.
  */
 exports.accountPut = function(req, res, next) {
-      User.findOneAndUpdate(req.user.id,req.body,{upsert: true}, function(err, user) {
+      User.findOneAndUpdate({_id:req.user.id},req.body,{upsert:true}, function(err, user) {
           console.log(user);
         if(err === null)
         {

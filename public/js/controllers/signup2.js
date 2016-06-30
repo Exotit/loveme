@@ -5,7 +5,7 @@ angular.module('MyApp')
     $scope.updateSignInfo = function() {
         Account.updateProfile($scope.form.user).then(function(response){
             if(response.status === 200) {
-                $state.go("home");
+                $state.go("goto",{chapter:1, slide:1});
             }
         });
     }
