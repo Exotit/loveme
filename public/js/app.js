@@ -84,7 +84,7 @@ angular.module('MyApp', ['ngRoute', 'satellizer', 'ui.router', 'ngAnimate'])
                 }
             },
             data: {
-                pageTitle: "Amour&numérique - Informations complémentaires"
+                pageTitle: "Amour&numérique - Informations complémentaires",
             }
         })
         .state('slide1', {
@@ -121,7 +121,7 @@ angular.module('MyApp', ['ngRoute', 'satellizer', 'ui.router', 'ngAnimate'])
             },
             data: {
                 pageTitle: "Model question"
-            },
+            }
         })
 
 
@@ -150,15 +150,21 @@ angular.module('MyApp', ['ngRoute', 'satellizer', 'ui.router', 'ngAnimate'])
           $rootScope.currentUser = JSON.parse($window.localStorage.user);
         }
 
-       $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState) {
-            if (typeof fromState.data != "undefined") {
-                if (fromState.data.index < toState.data.index) {
-                    toState.data.backward = false;
-                } else {
-                    toState.data.backward = true;
+       $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromState,fromParams) {
+            if (Object.keys(fromParams).length !== 0) {
+                if(fromParams.chapter === toParams.chapter)
+                {
+                    if (fromParams.slide < toParams.slide) {
+                        toState.data.backward = false;
+                    } else {
+                        toState.data.backward = true;
+                    }
+                    $rootScope.$state = $state;
                 }
-
-                $rootScope.$state = $state;
+                else if (fromParams.chapter < toParams.chapter) {
+                    toState.data.backward = false;
+                    $rootScope.$state = $state;
+                }
             }
        });
        $rootScope.$state = $state;
