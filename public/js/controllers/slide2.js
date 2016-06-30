@@ -1,5 +1,5 @@
 angular.module('MyApp')
-  .controller('Slide1Ctrl', function($scope, $location, $window, $auth) {
+  .controller('Slide2Ctrl', function($scope, $location, $window, $auth) {
     angular.element(document).ready(function () {
       var navControl = angular.element(document.querySelector('.nav-control'));
       var navOverlay = angular.element(document.querySelector('.nav-overlay'));

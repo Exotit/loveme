@@ -72,7 +72,19 @@ angular.module('MyApp', ['ngRoute', 'satellizer', 'ui.router', 'ngAnimate'])
                 }
             },
             data: {
-                pageTitle: "1. Introduction"
+                pageTitle: "Model text"
+            }
+        })
+        .state('slide2', {
+            url: "/slide2",
+            views: {
+                "partial": {
+                    templateUrl: "partials/slide2.html",
+                    controller:"Slide2Ctrl",
+                }
+            },
+            data: {
+                pageTitle: "Model video"
             }
         })
 
