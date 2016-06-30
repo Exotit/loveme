@@ -87,6 +87,18 @@ angular.module('MyApp', ['ngRoute', 'satellizer', 'ui.router', 'ngAnimate'])
                 pageTitle: "Model video"
             }
         })
+        .state('slide3', {
+            url: "/slide3",
+            views: {
+                "partial": {
+                    templateUrl: "partials/slide3.html",
+                    controller:"Slide3Ctrl",
+                }
+            },
+            data: {
+                pageTitle: "Model question"
+            }
+        })
 
 
     $authProvider.loginUrl = '/login';

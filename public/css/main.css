@@ -650,3 +650,18 @@ nav a:hover .tooltip {
     object-fit: cover;
   }
 }
+
+
+/* MODEL QUESTION */
+
+.model--question {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.model--question h1 {
+  line-height: 40px;
+}
