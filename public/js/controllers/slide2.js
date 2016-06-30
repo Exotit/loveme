@@ -1,5 +1,6 @@
 angular.module('MyApp')
   .controller('Slide2Ctrl', function($scope, $location, $window, $auth) {
+    console.log("test");
     angular.element(document).ready(function () {
       var navControl = angular.element(document.querySelector('.nav-control'));
       var navOverlay = angular.element(document.querySelector('.nav-overlay'));

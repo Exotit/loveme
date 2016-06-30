@@ -26,12 +26,18 @@ angular.module('MyApp')
             $rootScope.currentUser.progress.slide = 1;
             $rootScope.currentUser.progress.chapter += 1;
             self.saveProgress($rootScope.currentUser.progress.slide, $rootScope.currentUser.progress.chapter);
-            self.goTo($rootScope.currentUser.progress.slide, $rootScope.currentUser.progress.chapter);
+            self.goTo($rootScope.currentUser.progress.chapter,$rootScope.currentUser.progress.slide);
         }
 
-        this.goTo = function (slide, chapter) {
+        this.goTo = function (chapter, slide) {
+            $rootScope.currentUser.progress.slide = slide;
+            $rootScope.currentUser.progress.chapter = chapter;
             $state.go("goto", {chapter:chapter,slide:slide})
         }
 
+        this.set = function(chapter,slide) {
+            $rootScope.currentUser.progress.slide = slide;
+            $rootScope.currentUser.progress.chapter = chapter;
+        }
         return self;
     });
