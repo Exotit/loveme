@@ -79,7 +79,8 @@ angular.module('MyApp', ['ngRoute', 'satellizer', 'ui.router', 'ngAnimate'])
                         }
                     },
                     controller: function($scope, $stateParams, Progression,slideData) {
-                        console.log(slideData);
+                        $scope.data = slideData.data;
+                        console.log($scope.data);
                     }
                 }
             },
