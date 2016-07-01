@@ -25,6 +25,10 @@ angular.module('MyApp')
             if ($scope.data.type === "video") {
                 Video.initEvent($scope.data.nextChapter, $scope.data.nextSlide);
             } else if ($scope.data.type === "audios") {
+                var waveBtn = angular.element(document.querySelector('.model--audios .content button'));
+                waveBtn.on('click', function(){
+                  waveBtn.toggleClass('active');
+                })
                 $scope.wave = [];
                 for (var i = 0, l = $scope.data.audios.length; i < l; i++) {
                     $scope.wave[i] = WaveSurfer.create({
