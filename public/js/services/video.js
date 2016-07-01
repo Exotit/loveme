@@ -11,7 +11,6 @@ angular.module('MyApp')
             self.player.progress_bar = self.player.container.querySelector('.progress-bar');
 
             //check progress
-            console.log(self);
             $interval(function () {
                 var ratio = self.player.video.currentTime / self.player.video.duration,
                     percent = ratio * 100 + '%';

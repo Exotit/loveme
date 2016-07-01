@@ -4,8 +4,18 @@ angular.module('MyApp')
         $scope.data = slideData.data;
         if ($scope.data.type === "textimgs") {
             if ($rootScope.currentUser.appli === "oui") {
-                console.log($scope.data.paragraphs[0]);
                 $scope.data.paragraphs[0].text = $scope.data.paragraphs[0].text2;
+            }
+        }
+        if ($stateParams.slide == 4 && $stateParams.chapter == 6) {
+            var username = $scope.currentUser.name.split(" ")[0];
+            $scope.data.paragraphs[0].text += " " + username + " " + $scope.data.paragraphs[0].text2;
+            if ($rootScope.currentUser.appli === "non" && $rootScope.currentUser.status === "encouple") {
+                $scope.data.paragraphs[0].text += " Puisque tu n’utilises pas les réseaux de rencontre et que tu es en couple.";
+            } else if ($rootScope.currentUser.status === "encouple") {
+                $scope.data.paragraphs[0].text += " Puisque tu es en couple.";
+            } else if ($rootScope.currentUser.appli === "non") {
+                $scope.data.paragraphs[0].text += " Puisque tu n’utilises pas les réseaux de rencontre.";
             }
         }
         angular.element(document).ready(function () {
