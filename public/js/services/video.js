@@ -1,9 +1,9 @@
 angular.module('MyApp')
-    .factory('Video', function (Account, $http, $rootScope, $state,$interval,$timeout) {
+    .factory('Video', function (Progression, $http, $rootScope, $state,$interval,$timeout) {
         var self = this;
         this.player = {};
 
-        this.initEvent = function(){
+        this.initEvent = function(chapter,slide){
 
             self.player.container = document.querySelector('.player');
             self.player.video = self.player.container.querySelector('video');
@@ -41,7 +41,7 @@ angular.module('MyApp')
                 }
             });
 
-            self.player.container.addEventListener("click", function(e){
+            self.player.video.addEventListener("click", function(e){
                 if(self.player.video.paused === true)
                 {
                     self.player.video.play();
@@ -59,6 +59,10 @@ angular.module('MyApp')
                     angular.element(self.player.seek_bar).addClass("hide");
                 },2000);
             });
+
+            self.player.video.addEventListener("ended", function(){
+                Progression.goTo(chapter,slide);
+            })
         }
 
         return self;

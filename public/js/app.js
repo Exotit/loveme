@@ -39,6 +39,7 @@ angular.module('MyApp', ['ngRoute', 'satellizer', 'ui.router', 'ngAnimate'])
                 "partial": {
                     templateUrl: "partials/signup2.html",
                     controller:"Signup2Ctrl",
+                    resolve: { loginRequired: loginRequired }
                 }
             },
             data: {
@@ -88,7 +89,8 @@ angular.module('MyApp', ['ngRoute', 'satellizer', 'ui.router', 'ngAnimate'])
                             break;
                         }
                     },
-                    controller: 'SlideCtrl'
+                    controller: 'SlideCtrl',
+                    resolve: { loginRequired: loginRequired }
                 }
             },
             data: {
@@ -105,15 +107,15 @@ angular.module('MyApp', ['ngRoute', 'satellizer', 'ui.router', 'ngAnimate'])
     });
     //heroku 261242330915898
     //heroku https://amour-et-numerique.herokuapp.com/auth/facebook/callback
-    function skipIfAuthenticated($location, $auth) {
+    function skipIfAuthenticated($location, $auth,Progression) {
       if ($auth.isAuthenticated()) {
-        $location.path('/');
+          Progression.goTo(1,1);
       }
     }
 
-    function loginRequired($location, $auth) {
+    function loginRequired($location, $auth, $state) {
       if (!$auth.isAuthenticated()) {
-        $location.path('/login');
+        $state.go("login");
       }
     }
   })

@@ -12,6 +12,6 @@ angular.module('MyApp')
   console.log($scope.data);
   if($scope.data.type === "video")
   {
-      Video.initEvent();
+      Video.initEvent($scope.data.nextChapter,$scope.data.nextSlide);
   }
 });
