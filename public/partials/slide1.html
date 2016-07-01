@@ -2,6 +2,6 @@
   <section>
     <h1 class="ft--avenir__bold ft--grey__dark">{{data.title}}</h1>
     <p class="ft--avenir ft--grey__light" ng-class="{'ft--palatino': paragraph.quote, 'ft--grey__light': paragraph.quote}" ng-repeat="paragraph in data.paragraphs">{{paragraph.text}}</p>
-    <button class="ft--avenir__bold ft--white" ui-sref="goto({chapter: {{data.nextChapter}}, slide: {{data.nextSlide}}})">Passer à la suite</button>
+    <button class="ft--avenir ft--white" ui-sref="goto({chapter: {{data.nextChapter}}, slide: {{data.nextSlide}}})">Passer à la suite</button>
   </section>
 </div>

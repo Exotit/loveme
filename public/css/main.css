@@ -689,10 +689,24 @@ nav a:hover .tooltip {
   -webkit-transform: translateY(0px);
   transform: translateY(0px);
 }
+/* MODEL TEXTIMGS */
+
+.container.fs.model--textimgs img{
+  display:inline-block;
+  margin:0 10px 10px 0;
+
+}
+
+.container.fs.model--textimgs .content{
+  width:calc(100% + 40px);
+  padding:40px;
+  font-size:0;
+}
 
 
 /* MODEL TEXT */
 .container.fs.model--text,
+.container.fs.model--textimgs,
 .container.fs.model--textchat {
   min-height: 100vh;
   overflow: scroll;
@@ -700,6 +714,7 @@ nav a:hover .tooltip {
 }
 
 .container.fs.model--text section,
+.container.fs.model--textimgs section,
 .container.fs.model--textchat section {
   max-width: 940px;
   min-height: 100%;
@@ -741,6 +756,7 @@ nav a:hover .tooltip {
 }
 
 .model--text section button,
+.model--textimgs section button,
 .model--video button {
   -webkit-box-flex: 0;
   -webkit-flex: 0 1 auto;
@@ -1160,10 +1176,12 @@ h1 {
   }
 
   .container.fs.model--text,
+  .container.fs.model--textimgs,
   .container.fs.model--textchat {
     background-size: cover;
   }
   .container.fs.model--text section,
+  .container.fs.model--textimgs section,
   .container.fs.model--textchat section {
     padding: 20px 40px 60px 20px;
     margin-top: 200px;
