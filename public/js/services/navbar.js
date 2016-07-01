@@ -41,11 +41,18 @@ angular.module('MyApp')
             var navOverlay = angular.element(document.querySelector('.nav-overlay'));
             var navBar = angular.element(document.querySelector('nav'));
             var links = angular.element(document.getElementsByTagName('a'));
+            var seek_bar = angular.element(document.querySelector('.seek-bar'));
             navControl.on('click', function(){
                 navBar.toggleClass('up');
+                if(seek_bar) {
+                    seek_bar.toggleClass("hidep");
+                }
             });
             navOverlay.on('click', function(){
                 navBar.toggleClass('up');
+                if(seek_bar) {
+                    seek_bar.toggleClass("hidep");
+                }
             });
             links.on('click', function(){
                 if(!angular.element(this).hasClass("disabled"))

@@ -95,11 +95,10 @@ angular.module('MyApp', ['ngRoute', 'satellizer', 'ui.router', 'ngAnimate'])
     $authProvider.facebook({
       url: '/auth/facebook',
       clientId: '980220002068787',
-      //heroku 261242330915898
       redirectUri: 'http://localhost:3000/auth/facebook/callback'
-      //heroku https://amour-et-numerique.herokuapp.com/auth/facebook/callback
     });
-
+    //heroku 261242330915898
+    //heroku https://amour-et-numerique.herokuapp.com/auth/facebook/callback
     function skipIfAuthenticated($location, $auth) {
       if ($auth.isAuthenticated()) {
         $location.path('/');

@@ -1,5 +1,5 @@
 angular.module('MyApp')
-.controller('SlideCtrl', function($sce, $scope, NavBar, slideData, Progression,$stateParams) {
+.controller('SlideCtrl', function($sce, $scope, NavBar, slideData, Progression,$stateParams, Video) {
   Progression.set($stateParams.chapter,$stateParams.slide);
   $scope.data = slideData.data;
   angular.element(document).ready(function () {
@@ -8,5 +8,10 @@ angular.module('MyApp')
   });
   $scope.trustSrc = function(src) {
     return $sce.trustAsResourceUrl(src);
+  }
+  console.log($scope.data);
+  if($scope.data.type === "video")
+  {
+      Video.initEvent();
   }
 });

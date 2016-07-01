@@ -1,6 +1,13 @@
 <div class="container fs slide1 model--video">
-  <video ng-src="{{trustSrc(data.videolink)}}" autoplay preload="auto">
-    Your browser doesn't support video API
-  </video>
-  <button class="ft--avenir__bold ft--white" ui-sref="goto({chapter: {{data.nextChapter}}, slide: {{data.nextSlide}}})">Passer</button>
+    <div class="player">
+        <video
+        ng-src="{{trustSrc(data.videolink)}}"
+        autoplay
+        preload="auto"
+        ></video>
+        <div class="seek-bar">
+            <div class="progress-bar"></div>
+        </div>
+    </div>
+    <button class="ft--avenir__bold ft--white" ui-sref="goto({chapter: {{data.nextChapter}}, slide: {{data.nextSlide}}})">Passer</button>
 </div>
