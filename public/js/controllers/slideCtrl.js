@@ -14,4 +14,24 @@ angular.module('MyApp')
   {
       Video.initEvent();
   }
+  else if($scope.data.type === "audios")
+  {
+        var wavesurfer = WaveSurfer.create({
+        container: '#aurelien',
+        height:300,
+        barWidth:0.5,
+        waveColor: '#e5e5ea',
+        progressColor: "#FF6A6A",
+        cursorWidth:2
+    });
+
+    wavesurfer.load('http://ia902606.us.archive.org/35/items/shortpoetry_047_librivox/song_cjrg_teasdale_64kb.mp3');
+
+    wavesurfer.on('ready', function () {
+        wavesurfer.play();
+    });
+    wavesurfer.zoom(150);
+
+  }
+
 });

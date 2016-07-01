@@ -86,6 +86,12 @@ angular.module('MyApp', ['ngRoute', 'satellizer', 'ui.router', 'ngAnimate'])
                                         return tpl.data
                                     });
                             break;
+                            case "audios":
+                                return $http({method:'GET', url:"/partials/slide6.html"})
+                                    .then(function(tpl){
+                                        return tpl.data
+                                    });
+                            break;
                         }
                     },
                     controller: 'SlideCtrl'
@@ -141,3 +147,20 @@ angular.module('MyApp', ['ngRoute', 'satellizer', 'ui.router', 'ngAnimate'])
        });
        $rootScope.$state = $state;
   }]);
+
+
+  var wavesurfer = WaveSurfer.create({
+    container: '#waveform',
+    height:300,
+    barWidth:0.5,
+    waveColor: '#e5e5ea',
+    progressColor: "#FF6A6A",
+    cursorWidth:2
+});
+
+wavesurfer.load('http://ia902606.us.archive.org/35/items/shortpoetry_047_librivox/song_cjrg_teasdale_64kb.mp3');
+
+wavesurfer.on('ready', function () {
+    wavesurfer.play();
+});
+wavesurfer.zoom(150);
