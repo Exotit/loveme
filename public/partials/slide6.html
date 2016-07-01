@@ -1,14 +1,13 @@
-<div class="container fs model--statsnumber">
-  <span class="stats-number ft--avenir__bold ft--grey__light">71%</span>
-  <span class="stats-number-bg ft--avenir__bold ft--grey__light">71%</span>
-  <h1 class="ft--avenir__bold ft--grey__dark">Des personnes ayant utilisés une application de rencontre avouent avoir eu des <span class="ft--red">relations</span>.</h1>
-  <button class="ft--avenir__bold ft--white">Passer à la suite</button>
+<div class="container fs model--audios">
+  <section>
+    <p class="ft--avenir ft--grey__light" ng-class="{'ft--palatino': paragraph.quote, 'ft--grey__light': paragraph.quote}" ng-repeat="paragraph in data.paragraphs">{{paragraph.text}}</p>
+    <div class="content">
+   	  <div ng-repeat="audio in data.audios">
+   	  	<p>{{ audio.name }}</p>
+
+		<video width="600" height="200" src="http://download1517.mediafire.com/2a4qdh248n1g/1kkmuy49h21t5ao/debutnotecorrige3.avi" class="waveform" id="{{ audio.name }}"></video>
+    </div>
+    <button class="ft--avenir ft--white" ui-sref="goto({chapter: {{data.nextChapter}}, slide: {{data.nextSlide}}})">Passer à la suite</button>
+  </section>
 </div>
 
-<nav>
-  <div class="nav-overlay"></div>
-  <div class="nav-control"></div>
-  <a href="#" class="active"><div class="tooltip ft--avenir ft--white">Part 1</div></a>
-  <a href="#"><div class="tooltip ft--avenir ft--white">Part 2kvljvkvkhv</div></a>
-  <a href="#"><div class="tooltip ft--avenir ft--white">Part 3</div></a>
-</nav>
