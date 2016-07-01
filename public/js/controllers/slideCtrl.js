@@ -18,7 +18,7 @@ angular.module('MyApp')
   {
         var wavesurfer = WaveSurfer.create({
         container: '#aurelien',
-        height:300,
+        height:200,
         barWidth:0.5,
         waveColor: '#e5e5ea',
         progressColor: "#FF6A6A",
@@ -30,7 +30,6 @@ angular.module('MyApp')
     wavesurfer.on('ready', function () {
         wavesurfer.play();
     });
-    wavesurfer.zoom(150);
 
   }
 
