@@ -1413,12 +1413,12 @@ video.video{
     display: inline-block;
     opacity: 1;
     position: absolute;
-    bottom: 40px;
-    width:80%;
+    top: 0px;
+    width:100%;
     left:50%;
     -webkit-transform: translateX(-50%);
             transform: translateX(-50%);
-    height:20px;
+    height:10px;
     background-color:lightblue;
     z-index: 1;
     -webkit-transition: all 0.5s ease;
