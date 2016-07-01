@@ -1,4 +1,4 @@
-<div class="container fs model--text" style="background: url(https://unsplash.it/1440/900) no-repeat;">
+<div class="container fs model--text" style="background: url({{ data.imagelink }}) no-repeat;">
     <section>
         <h1 class="ft--avenir__bold ft--grey__dark">{{data.title}}</h1>
         <p class="ft--avenir ft--grey__light" ng-class="{'ft--palatino': paragraph.quote, 'ft--grey__light': paragraph.quote}" ng-repeat="paragraph in data.paragraphs">{{paragraph.text}}</p>
