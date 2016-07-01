@@ -1,7 +1,7 @@
 <div class="container fs model--question">
-  <h1 class="ft--avenir__bold ft--grey__dark"><span ng-class="{'ft--red': question.colored}" ng-repeat="question in data.questions">{{question.text}}</span></h1>
-  <div class="answer">
-    <button class="ft--avenir__bold ft--white" ui-sref="goto({chapter: {{data.answers[0].nextChapter}}, slide: {{data.answers[0].nextSlide}}})">{{data.answers[0].text}}</button>
-    <button class="ft--avenir__bold ft--white" ui-sref="goto({chapter: {{data.answers[1].nextChapter}}, slide: {{data.answers[1].nextSlide}}})">{{data.answers[1].text}}</button>
-  </div>
+    <h1 class="ft--avenir__bold ft--grey__dark"><span ng-class="{'ft--red': question.colored}" ng-repeat="question in data.questions">{{question.text}}</span></h1>
+    <div class="answer">
+        <button class="ft--avenir__bold ft--white" ui-sref="goto({chapter: {{data.answers[0].nextChapter}}, slide: {{data.answers[0].nextSlide}}})">{{data.answers[0].text}}</button>
+        <button class="ft--avenir__bold ft--white" ui-sref="goto({chapter: {{data.answers[1].nextChapter}}, slide: {{data.answers[1].nextSlide}}})">{{data.answers[1].text}}</button>
+    </div>
 </div>

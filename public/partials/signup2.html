@@ -1,14 +1,16 @@
 <div class="container fs login">
-  <div ng-if="messages.error" role="alert" class="text-danger">
-    <div ng-repeat="error in messages.error">{{error.msg}}</div>
-  </div>
-  <form name="signUpdateForm" ng-submit="signUpdateForm.$valid && updateSignInfo()" novalidate>
-    <label for="age" class="ft--avenir__bold ft--grey__dark" >Quel est votre âge ?</label>
-    <input ng-model="form.user.age" required class="ft--avenir ft--grey__light" type="number" min="1" max="99" step="1" name="age" id="age" placeholder="Mon âge" ng-model="user.age" autofocus required>
-    <label for="status" class="ft--avenir__bold ft--grey__dark">Quel est votre statut relationnel ?</label>
-    <div><input ng-model="form.user.status" required class="ft--avenir ft--grey__light" type="radio" type="text" name="status" id="status" value="celibataire">Célibataire</div>
-    <div><input ng-model="form.user.status" required class="ft--avenir ft--grey__light" type="radio" type="text" name="status" id="status" value="encouple">En couple</div>
-    <button class="ft--avenir__bold ft--white" type="submit">Confirmer</button>
-    <span class="conditions-info ft--avenir ft--grey__dark">En continuant, vous acceptez nos <a href="#" class="ft--red">conditions d’utilisation</a> et Politique de Confidentialité</span>
-  </form>
+    <div ng-if="messages.error" role="alert" class="text-danger">
+        <div ng-repeat="error in messages.error">{{error.msg}}</div>
+    </div>
+    <form name="signUpdateForm" ng-submit="signUpdateForm.$valid && updateSignInfo()" novalidate>
+        <label for="age" class="ft--avenir__bold ft--grey__dark">Quel est votre âge ?</label>
+        <input ng-model="form.user.age" required class="ft--avenir ft--grey__light" type="number" min="1" max="99" step="1" name="age" id="age" placeholder="Mon âge" ng-model="user.age" autofocus required>
+        <label for="status" class="ft--avenir__bold ft--grey__dark">Quel est votre statut relationnel ?</label>
+        <div>
+            <input ng-model="form.user.status" required class="ft--avenir ft--grey__light" type="radio" type="text" name="status" id="status" value="celibataire">Célibataire</div>
+        <div>
+            <input ng-model="form.user.status" required class="ft--avenir ft--grey__light" type="radio" type="text" name="status" id="status" value="encouple">En couple</div>
+        <button class="ft--avenir__bold ft--white" type="submit">Confirmer</button>
+        <span class="conditions-info ft--avenir ft--grey__dark">En continuant, vous acceptez nos <a href="#" class="ft--red">conditions d’utilisation</a> et Politique de Confidentialité</span>
+    </form>
 </div>
