@@ -1,26 +1,9 @@
-<div class="container fs model--text model--stats">
-  <aside>
-    <div class="stats-graph">
-      <img src="img/graph_ex.svg" alt="">
-    </div>
-    <div class="stats-legend">
-      <span class="stats-legend--1 ft--avenir__bold ft--red">Agrees</span>
-      <span class="stats-legend--2 ft--avenir__bold ft--grey__dark">Disagrees</span>
-    </div>
-  </aside>
+<div class="container fs model--textimgs">
   <section>
-    <h1 class="ft--avenir__bold ft--grey__dark">An awesome title</h1>
-    <p class="ft--avenir ft--grey__light">Batnae municipium in Anthemusia conditum Macedonum manu priscorum ab Euphrate flumine brevi spatio disparatur, refertum mercatoribus opulentis, ubi annua sollemnitate prope Septembris initium mensis ad nundinas magna promiscuae fortunae convenit multitudo ad commercanda quae Indi mittunt et Seres aliaque plurima vehi terra marique consueta.</p>
-    <blockquote class="ft--avenir ft--grey__light">La parole, les gestes, les mimiques restent d’usage courant dans les échanges au sein des sociétés humaines. Nous ne vivons pas encore au sein d’une pure société de communication numérique et nous ne sommes pas non plus les expérimentateurs d’un nouvel âge de l’information. Mais nous sommes entrés, de plein gré, dans une époque neuve, et qui ne nous laisse aucun répit : le temps de la connexion permanente</blockquote>
-    <p class="ft--avenir ft--grey__light">— La condition numérique - Jean-François Fogel & Bruno Patino</p>
-    <button class="ft--avenir__bold ft--white">Passer à la suite</button>
+    <p class="ft--avenir ft--grey__light" ng-class="{'ft--palatino': paragraph.quote, 'ft--grey__light': paragraph.quote}" ng-repeat="paragraph in data.paragraphs">{{paragraph.text}}</p>
+    <div class="content">
+      <img ng-repeat="image in data.images" src="{{ image.imagelink }}" alt="{{image.name}}" width="{{ image.width }}" height="{{ image.height }}">
+    </div>
+    <button class="ft--avenir ft--white" ui-sref="goto({chapter: {{data.nextChapter}}, slide: {{data.nextSlide}}})">Passer à la suite</button>
   </section>
 </div>
-
-<nav>
-  <div class="nav-overlay"></div>
-  <div class="nav-control"></div>
-  <a href="#" class="active"><div class="tooltip ft--avenir ft--white">Part 1</div></a>
-  <a href="#"><div class="tooltip ft--avenir ft--white">Part 2kvljvkvkhv</div></a>
-  <a href="#"><div class="tooltip ft--avenir ft--white">Part 3</div></a>
-</nav>

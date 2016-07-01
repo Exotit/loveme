@@ -80,6 +80,12 @@ angular.module('MyApp', ['ngRoute', 'satellizer', 'ui.router', 'ngAnimate'])
                                         return tpl.data
                                     });
                             break;
+                            case "textimgs":
+                                return $http({method:'GET', url:"/partials/slide5.html"})
+                                    .then(function(tpl){
+                                        return tpl.data
+                                    });
+                            break;
                         }
                     },
                     controller: 'SlideCtrl'
