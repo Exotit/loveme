@@ -1,7 +1,13 @@
 angular.module('MyApp')
-    .controller('SlideCtrl', function ($sce, $scope, NavBar, slideData, Progression, $stateParams, Video) {
+    .controller('SlideCtrl', function ($sce, $scope, NavBar, slideData, Progression, $stateParams, Video, $rootScope) {
         Progression.set($stateParams.chapter, $stateParams.slide);
         $scope.data = slideData.data;
+        if ($scope.data.type === "textimgs") {
+            if ($rootScope.currentUser.appli === "oui") {
+                console.log($scope.data.paragraphs[0]);
+                $scope.data.paragraphs[0].text = $scope.data.paragraphs[0].text2;
+            }
+        }
         angular.element(document).ready(function () {
             var container = angular.element(document.querySelector("[ui-view='partial']"));
             var hello = NavBar.createNavBar(container);
@@ -26,5 +32,4 @@ angular.module('MyApp')
         $scope.trustSrc = function (src) {
             return $sce.trustAsResourceUrl(src);
         }
-
     });
