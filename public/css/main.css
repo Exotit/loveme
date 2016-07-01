@@ -740,6 +740,9 @@ nav a:hover .tooltip {
 }
 
 .model--audios .content > div {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
   display: flex;
   margin-bottom: 30px;
 }
@@ -1331,21 +1334,32 @@ h1 {
 
   nav {
     height: 400px;
-    flex-flow: column nowrap;
-    align-items: flex-start;
-    justify-content: space-around;
+    -webkit-flex-flow: column nowrap;
+        -ms-flex-flow: column nowrap;
+            flex-flow: column nowrap;
+    -webkit-box-align: start;
+    -webkit-align-items: flex-start;
+        -ms-flex-align: start;
+                -ms-grid-row-align: flex-start;
+            align-items: flex-start;
+    -webkit-justify-content: space-around;
+        -ms-flex-pack: distribute;
+            justify-content: space-around;
   }
   nav.up {
-    transform: translateY(calc(100vh - 400px));
+    -webkit-transform: translateY(calc(100vh - 400px));
+            transform: translateY(calc(100vh - 400px));
   }
   .nav-control {
     bottom: 400px;
   }
   nav .nav-control:hover {
-    transform: translate3d(0, 0px, 0);
+    -webkit-transform: translate3d(0, 0px, 0);
+            transform: translate3d(0, 0px, 0);
   }
   nav.up .nav-control {
-    transform: translate3d(0, 1px, 0);
+    -webkit-transform: translate3d(0, 1px, 0);
+            transform: translate3d(0, 1px, 0);
   }
   nav a {
     margin-left: 30px;
@@ -1358,8 +1372,14 @@ h1 {
     content: none;
   }
   nav a .tooltip {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: flex-start;
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
     background: none;
     position: relative;
     top: -30px;
@@ -1396,10 +1416,12 @@ video.video{
     bottom: 40px;
     width:80%;
     left:50%;
-    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
     height:20px;
     background-color:lightblue;
     z-index: 1;
+    -webkit-transition: all 0.5s ease;
     transition:all 0.5s ease;
 }
 
@@ -1409,12 +1431,11 @@ video.video{
     height:100%;
     background-color:cadetblue;
     -webkit-transform: scaleX(0);
-    -ms-transform: scaleX(0);
     transform: scaleX(0);
     -webkit-transform-origin:0;
-    -ms-transform-origin:0;
     transform-origin:0;
     -webkit-transition:-webkit-transform 0.1s linear;
+    -webkit-transition: all 0.1s linear;
     transition:all 0.1s linear;
 }
 
